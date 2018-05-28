@@ -16,8 +16,8 @@ class DecimalTime(object):
 
     def _convert_time(self):
         decimal_seconds_since_midnight = self._seconds_since_midnight / self._interval
-        hour = (decimal_seconds_since_midnight // (self._seconds_per_minute * self._minutes_per_hour)) - 10
-        minute =
+        hour = int((decimal_seconds_since_midnight // (self._seconds_per_minute * self._minutes_per_hour)) - 10)
+        minute = hour*self._minutes 
         time_string = "{} {}".format(date, time)
 
     def print_time(self):
@@ -25,4 +25,3 @@ class DecimalTime(object):
         self._convert_time()
         print()
 
-DecimalTime().print_time()
